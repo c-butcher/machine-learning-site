@@ -1,0 +1,6 @@
+172.19.0.1 - - [14/Apr/2019:21:24:36 +0000] "GET / HTTP/1.1" 404 55103 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+172.19.0.1 - - [14/Apr/2019:21:24:36 +0000] "GET /_wdt/212571 HTTP/1.1" 200 16743 "http://127.0.0.1:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+172.19.0.1 - - [14/Apr/2019:21:24:36 +0000] "GET /favicon.ico HTTP/1.1" 404 241683 "http://127.0.0.1:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+172.19.0.1 - - [14/Apr/2019:21:24:38 +0000] "GET / HTTP/1.1" 404 55080 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+172.19.0.1 - - [14/Apr/2019:21:24:38 +0000] "GET /_wdt/144bca HTTP/1.1" 200 16738 "http://127.0.0.1:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+172.19.0.1 - - [14/Apr/2019:21:24:43 +0000] "GET /_profiler/144bca?panel=logger HTTP/1.1" 200 357088 "http://127.0.0.1:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"

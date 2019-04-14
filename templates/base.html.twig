@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="UTF-8">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block navbar %}
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container d-flex justify-content-between">
+                    <a href="/" class="navbar-brand d-flex align-items-center">
+                        <strong>Machine Learning</strong>
+                    </a>
+                    <nav id="navigation" class="my-2 my-md-0 mr-md-3">
+                        <a class="p-2 text-light" href="/">Home</a>
+                    </nav>
+                </div>
+            </div>
+        {% endblock %}
+
+        <div id="main" class="main" role="main">
+            {% block body %}{% endblock %}
+        </div>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

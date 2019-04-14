@@ -1,4 +1,5 @@
 .idea/
+/docker/logs/*
 
 /.env.local
 /.env.local.php

@@ -1,0 +1,17 @@
+language: php
+php:
+  - '7.2'
+  - '7.1'
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install
+  - ./bin/phpunit install
+
+script:
+  - ./bin/phpunit # Runs our testing suite.
+  - ./bin/console lint:yaml config # Checks that YAML config files contain no syntax errors
+  - ./bin/console lint:twig templates # Checks that Twig template files contain no syntax errors
+  - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction # Checks that Doctrine mappings are valid.

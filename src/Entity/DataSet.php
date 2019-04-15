@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class DataSet
@@ -28,6 +29,13 @@ class DataSet
     protected $name;
 
     /**
+     * @ORM\Column(type="string", length=6)
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * @ORM\Column(type="string", length=120)
      *
      * @var string
@@ -35,14 +43,19 @@ class DataSet
     protected $filename;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var UploadedFile
+     */
+    protected $uploadedFile;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var integer
      */
     protected $numRows;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var integer
      */
@@ -53,14 +66,14 @@ class DataSet
      *
      * @var boolean
      */
-    protected $hasColumnLabels;
+    protected $hasColumnLabels = false;
 
     /**
      * @ORM\Column(type="boolean")
      *
      * @var boolean
      */
-    protected $visible;
+    protected $visible = true;
 
     /**
      * @return mixed
@@ -73,7 +86,7 @@ class DataSet
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -89,7 +102,23 @@ class DataSet
     /**
      * @return string
      */
-    public function getFilename(): string
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFilename(): ?string
     {
         return $this->filename;
     }
@@ -103,9 +132,25 @@ class DataSet
     }
 
     /**
+     * @return UploadedFile
+     */
+    public function getUploadedFile(): ?UploadedFile
+    {
+        return $this->uploadedFile;
+    }
+
+    /**
+     * @param UploadedFile $uploadedFile
+     */
+    public function setUploadedFile(UploadedFile $uploadedFile): void
+    {
+        $this->uploadedFile = $uploadedFile;
+    }
+
+    /**
      * @return int
      */
-    public function getNumRows(): int
+    public function getNumRows(): ?int
     {
         return $this->numRows;
     }
@@ -121,7 +166,7 @@ class DataSet
     /**
      * @return int
      */
-    public function getNumColumns(): int
+    public function getNumColumns(): ?int
     {
         return $this->numColumns;
     }

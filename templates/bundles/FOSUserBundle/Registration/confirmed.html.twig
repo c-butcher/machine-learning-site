@@ -9,7 +9,7 @@
                         <h1 class="h3 font-weight-normal">{{ 'Confirmed'|trans }}</h1>
                     </div>
                     <div class="card-body">
-                        <p>{{ "Congratulations, "|trans ~ app.user.username|default('User') ~ "!"|trans }}</p>
+                        <p>{{ "Congratulations, %username%!"|trans({'%username%': app.user.username|default('User')}) }}</p>
                         <p>{{ "Your account has been confirmed, and you can start learning from your data."|trans }}</p>
                         <a class="btn btn-primary" href="{{ path('homepage') }}">{{ "Get Started"|trans }}</a>
                     </div>

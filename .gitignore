@@ -4,6 +4,7 @@ docker/logs/*
 .env.local
 .env.test
 public/bundles/
+public/uploads/*
 var/
 vendor/
 

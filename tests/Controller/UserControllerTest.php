@@ -34,6 +34,33 @@ class UserControllerTest extends WebTestCase
         // Check to make sure that we have a submit button
         $this->assertEquals(1, $crawler->filter("form input[type='submit']")->count());
     }
+
+    /**
+     * Test to make sure the login page is working.
+     */
+    public function testLogin()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/login');
+
+        // Make sure we are getting the right HTTP response code.
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $crawler = $client->getCrawler();
+
+        // Check to make sure that we have the username input.
+        $this->assertEquals(1, $crawler->filter("input[name='_username']")->count());
+
+        // Check to make sure that we have the password input.
+        $this->assertEquals(1, $crawler->filter("input[name='_password']")->count());
+
+        // Check to make sure that we have the remember me input.
+        $this->assertEquals(1, $crawler->filter("input[name='_remember_me']")->count());
+
+        // Check to make sure that we have the submit button
+        $this->assertEquals(1, $crawler->filter("input[name='_submit']")->count());
+    }
+
     /**
      * Test to make sure the confirmed page is working.
      */

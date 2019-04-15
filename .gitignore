@@ -1,8 +1,8 @@
 .idea/
 docker/logs/*
 
-.env
-.env.*
+.env.local
+.env.test
 public/bundles/
 var/
 vendor/

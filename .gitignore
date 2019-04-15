@@ -1,14 +1,13 @@
 .idea/
-/docker/logs/*
+docker/logs/*
 
-/.env.local
-/.env.local.php
-/.env.*.local
-/public/bundles/
-/var/
-/vendor/
+.env
+.env.*
+public/bundles/
+var/
+vendor/
 
 .phpunit
-/phpunit.xml
+phpunit.xml
 
-/.web-server-pid
+.web-server-pid

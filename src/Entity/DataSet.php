@@ -53,6 +53,13 @@ class DataSet
      *
      * @var boolean
      */
+    protected $hasColumnLabels;
+
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     * @var boolean
+     */
     protected $visible;
 
     /**
@@ -125,6 +132,22 @@ class DataSet
     public function setNumColumns(int $numColumns): void
     {
         $this->numColumns = $numColumns;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasColumnLabels(): bool
+    {
+        return $this->hasColumnLabels;
+    }
+
+    /**
+     * @param bool $hasColumnLabels
+     */
+    public function setHasColumnLabels(bool $hasColumnLabels): void
+    {
+        $this->hasColumnLabels = $hasColumnLabels;
     }
 
     /**

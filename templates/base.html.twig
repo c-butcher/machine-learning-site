@@ -17,6 +17,11 @@
                     </a>
                     <nav id="navigation" class="my-2 my-md-0 mr-md-3">
                         <a class="p-2 text-light" href="/">Home</a>
+                        {% if app.user %}
+                            <a class="p-2 text-light" href="{{ path('fos_user_security_logout') }}">Logout</a>
+                        {% else %}
+                            <a class="p-2 text-light" href="{{ path('fos_user_security_login') }}">Login</a>
+                        {% endif %}
                     </nav>
                 </div>
             </div>

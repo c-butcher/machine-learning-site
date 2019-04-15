@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="mt-5 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 offset-sm-0">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="h3 font-weight-normal">{{ 'Please Login'|trans }}</h1>
+                    </div>
+                    <div class="card-body">
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
+
+                            <div class="form-group">
+                                <label for="username">{{ 'Email Address'|trans }}</label>
+                                <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" required="required" autocomplete="username" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">{{ 'Password'|trans }}</label>
+                                <input type="password" id="password" name="_password" class="form-control" required="required" autocomplete="current-password" />
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-4">
+                                <input type="checkbox" id="remember_me" name="_remember_me" class="custom-control-input" value="on" />
+                                <label for="remember_me" class="custom-control-label">{{ 'Remember Me'|trans }}</label>
+                            </div>
+
+                            <input type="submit" id="_submit" name="_submit"class="btn btn-lg btn-primary btn-block" value="{{ 'Sign In'|trans }}" />
+
+                            <p class="mt-4 text-center">{{ "Don't have an account? You can <a href='%register%'>register for free</a>"|trans({ '%register%': path('fos_user_registration_register') })|raw }}</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

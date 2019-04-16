@@ -29,6 +29,13 @@ class DataSet
     protected $name;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\DataSetColumn", mappedBy="dataSet")
+     *
+     * @var DataSetColumn[]
+     */
+    protected $columns;
+
+    /**
      * @ORM\Column(type="string", length=6)
      *
      * @var string
@@ -97,6 +104,22 @@ class DataSet
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return DataSetColumn[]
+     */
+    public function getColumns(): ?array
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @param DataSetColumn[] $columns
+     */
+    public function setColumns(array $columns): void
+    {
+        $this->columns = $columns;
     }
 
     /**

@@ -18,7 +18,7 @@ services:
             - '9002:9000'
         volumes:
             - ../:/var/www/machine-learning-site
-            - ./logs/symfony:/var/www/symfony/var/logs
+            - ./logs/symfony:/var/www/machine-learning-site/var/log
         links:
             - mysql
     nginx:

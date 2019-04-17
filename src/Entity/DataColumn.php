@@ -5,13 +5,13 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class DataSetColumn
+ * Class DataColumn
  *
  * @package App\Entity
  *
- * @ORM\Entity(repositoryClass="App\Repository\DataSetColumnRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DataColumnRepository")
  */
-class DataSetColumn
+class DataColumn
 {
     /**
      * @ORM\Id
@@ -60,7 +60,7 @@ class DataSetColumn
     /**
      * @return DataSet
      */
-    public function getDataSet(): DataSet
+    public function getDataSet(): ?DataSet
     {
         return $this->dataSet;
     }

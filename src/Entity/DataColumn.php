@@ -36,7 +36,7 @@ class DataColumn
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=36)
+     * @ORM\Column(type="string", length=120)
      *
      * @var string
      */

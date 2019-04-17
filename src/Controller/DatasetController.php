@@ -33,6 +33,9 @@ class DatasetController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Save the changes.
+            $manager = $this->getDoctrine()->getManager();
+            $manager->flush();
         }
 
         return $this->render('dataset/describe.html.twig', [

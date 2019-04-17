@@ -33,7 +33,7 @@ class DataReaderTest extends WebTestCase
             $this->assertTrue(true);
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -53,7 +53,7 @@ class DataReaderTest extends WebTestCase
             $this->assertTrue(true);
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -71,7 +71,7 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals(5, $reader->getNumRows());
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -89,7 +89,7 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals(5, $reader->getNumColumns());
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -128,7 +128,7 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals('integer', $types[4]);
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -167,7 +167,7 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals('integer', $types[4]);
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 
@@ -201,7 +201,7 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals($labels, array_keys($rows[0]));
 
         } catch(\Exception $ex) {
-            $this->assertTrue(false);
+            $this->assertTrue(false, $ex->getMessage());
         }
     }
 }

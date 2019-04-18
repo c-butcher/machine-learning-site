@@ -3,13 +3,19 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="mt-5 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 offset-sm-0">
+            <div class="mt-5 col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         <h1 class="h3 font-weight-normal">{{ dataset.name }}</h1>
                     </div>
                     <div class="card-body">
+                        {{ form_start(form) }}
+                            {{ form_widget(form) }}
 
+                            <div class="buttons float-right">
+                                <input type="submit" class="btn btn-primary" value="Continue" />
+                            </div>
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>

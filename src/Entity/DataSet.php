@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -27,6 +29,13 @@ class DataSet
      * @var string
      */
     protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\DataColumn", mappedBy="dataSet", cascade={"persist"})
+     *
+     * @var Collection
+     */
+    protected $columns;
 
     /**
      * @ORM\Column(type="string", length=6)
@@ -75,6 +84,11 @@ class DataSet
      */
     protected $visible = true;
 
+    public function __construct()
+    {
+        $this->columns = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -97,6 +111,38 @@ class DataSet
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getColumns(): ? Collection
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @param DataColumn $column
+     */
+    public function addColumn(DataColumn $column)
+    {
+        $this->columns->add($column);
+    }
+
+    /**
+     * @param DataColumn $column
+     */
+    public function removeColumn(DataColumn $column)
+    {
+        $this->columns->removeElement($column);
+    }
+
+    /**
+     * @param Collection $columns
+     */
+    public function setColumns(Collection $columns): void
+    {
+        $this->columns = $columns;
     }
 
     /**

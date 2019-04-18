@@ -59,7 +59,7 @@ class DataReader
     public function getColumnTypes()
     {
         $columns = array();
-        $highestColumn  = $this->worksheet->getHighestColumn();
+        $highestColumn  = $this->worksheet->getHighestDataColumn();
 
         foreach ($this->worksheet->getColumnIterator('A', $highestColumn) as $column) {
             foreach ($column->getCellIterator(1, 1) as $cell) {
@@ -141,22 +141,6 @@ class DataReader
         $types = array_count_values($types);
         $types = array_keys($types);
         $type  = array_pop($types);
-
-        switch ($type) {
-            case DataType::TYPE_NUMERIC:
-                $type = 'integer';
-                break;
-
-            case DataType::TYPE_BOOL:
-                $type = 'boolean';
-                break;
-
-            case DataType::TYPE_STRING:
-            case DataType::TYPE_STRING2:
-            default:
-                $type = 'string';
-                break;
-        }
 
         return $type;
     }

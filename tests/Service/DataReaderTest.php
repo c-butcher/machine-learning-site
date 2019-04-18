@@ -109,6 +109,13 @@ class DataReaderTest extends WebTestCase
 
         try {
             $reader = new DataReader($dataset, $this->dataDir);
+
+        } catch(\Exception $ex) {
+            $this->assertTrue(false, $ex->getMessage());
+            return;
+        }
+
+        if (is_object($reader)) {
             $labels = $reader->getColumnTypes();
             $this->assertCount(5, $labels);
 
@@ -121,14 +128,11 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals('D', $names[3]);
             $this->assertEquals('E', $names[4]);
 
-            $this->assertEquals('integer', $types[0]);
-            $this->assertEquals('integer', $types[1]);
-            $this->assertEquals('integer', $types[2]);
-            $this->assertEquals('string', $types[3]);
-            $this->assertEquals('integer', $types[4]);
-
-        } catch(\Exception $ex) {
-            $this->assertTrue(false, $ex->getMessage());
+            $this->assertEquals('n', $types[0]);
+            $this->assertEquals('n', $types[1]);
+            $this->assertEquals('n', $types[2]);
+            $this->assertEquals('s', $types[3]);
+            $this->assertEquals('n', $types[4]);
         }
     }
 
@@ -148,6 +152,13 @@ class DataReaderTest extends WebTestCase
 
         try {
             $reader = new DataReader($dataset, $this->dataDir);
+
+        } catch(\Exception $ex) {
+            $this->assertTrue(false, $ex->getMessage());
+            return;
+        }
+
+        if (is_object($reader)) {
             $labels = $reader->getColumnTypes();
             $this->assertCount(5, $labels);
 
@@ -160,14 +171,11 @@ class DataReaderTest extends WebTestCase
             $this->assertEquals('three', $names[3]);
             $this->assertEquals('four', $names[4]);
 
-            $this->assertEquals('integer', $types[0]);
-            $this->assertEquals('string', $types[1]);
-            $this->assertEquals('integer', $types[2]);
-            $this->assertEquals('integer', $types[3]);
-            $this->assertEquals('integer', $types[4]);
-
-        } catch(\Exception $ex) {
-            $this->assertTrue(false, $ex->getMessage());
+            $this->assertEquals('n', $types[0]);
+            $this->assertEquals('s', $types[1]);
+            $this->assertEquals('n', $types[2]);
+            $this->assertEquals('n', $types[3]);
+            $this->assertEquals('n', $types[4]);
         }
     }
 
